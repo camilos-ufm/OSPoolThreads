@@ -24,7 +24,8 @@ if __name__ == "__main__":
 
         file_a_df = csv_manager.read(file_a)
         file_b_df = csv_manager.read(file_b)
-        mat_mult.mult(file_a_df, file_b_df)
+        mult = mat_mult(file_a_df, file_b_df)
+        mult.mult()
         csv_manager.write(output_filename)
 
         
