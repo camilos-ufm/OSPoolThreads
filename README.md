@@ -35,7 +35,7 @@ matrix multiplication using a thread pool to multiprocess the arithmetic operati
 - The class mat mult has a main method: run() and it implements a list o threads (pool), in which we store each pool.
 - We created different partitions of the matrix according to the pool size.
 - A part of the matrix is assigned to each thread for it to operate.
-- At the end, we iterate in the list of threads and join them all to the main thread.
+- At the end, we iterate through the list of threads and join them all to the main thread.
 - All operations are storaged in an atribute in the class instance, so we print it into a csv.
 
 Final time result for a 500x500 operation: 362.452 seconds
