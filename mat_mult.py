@@ -1,43 +1,46 @@
+# imports
+import sys, time
+from threading import Thread
+import numpy as np
 import pandas as pd
-from tabulate import tabulate
-import threading
-import time
 
 
 class mat_mult:
-    """
-    TODO: dynamic 'm'
-    """
-    def __init__(self, matrix_a, matrix_b):
+    def __init__(self, matrix_a, matrix_b, pool_size):
         """ Create a new point at the origin """
-        self.X = matrix_a
-        self.Y = matrix_b
+        self.matrix_a = matrix_a
+        self.matrix_b = matrix_b
+        self.pool_size = int(pool_size)
+        self.matrix_c = []
 
-    def mult(self):
-        result = [[0]*self.m]
-        for z in range(len(self.Y[0])):
-            for k in range(len(self.Y)):
-                result[0][z] += self.X[0] * self.Y[k][z]
+    def validate_dimentions(self):
+        m = self.matrix_a.shape[0]
+        k1 = self.matrix_a.shape[1]
+        k2 = self.matrix_b.shape[0]
+        n = self.matrix_b.shape[1]
+        self.matrix_c = np.zeros((m,n))
+        return k1==k2
 
-        threads = list()
+    def matmult(self, param1, param2):
+        n = self.matrix_a.shape[0]
+        for i in range(int(param1), int(param2)):
+            for j in range(n):
+                for k in range(n):
+                    self.matrix_c[i][j] += int(self.matrix_a[i][k] * self.matrix_b[k][j])
 
-        start = time.perf_counter()
-        for i in range(len(self.X[0])):
-            self.X = threading.Thread(
-                target=self.mult, args=(self.X[i], self.Y))
-            threads.append(self.X)
-            self.X.start()
+    def run(self):
+        thread_pool_list = list()
+        n = self.matrix_a.shape[0]
 
-        for index, thread in enumerate(threads):
-            thread.join()
-        end = time.perf_counter()
+        for i in range(0, self.pool_size):
+            init = (n/self.pool_size)
+            end = (n/self.pool_size) 
+            single_thread = Thread(target = self.matmult, args=(init * i, end * (i+1)))
+            thread_pool_list.append(single_thread)
+            single_thread.start()   
 
-        print(
-            f"Time taken to complete mult() {self.m}x{self.m}: {round(end - start, 5)} seconds(s)")
-
-#    print(f" {result}")
-        print(tabulate(self.matrix_a, headers='keys', tablefmt='pretty'))
-        print(tabulate(self.matrix_b, headers='keys', tablefmt='pretty'))
-
-        # print(f"FILE A {file_a}")
-        # print(f"FILE B {file_b}")
+        for j in range(0, self.pool_size):
+            thread_pool_list[j].join()
+    
+    def get_final_response(self):
+        return self.matrix_c

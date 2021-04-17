@@ -1,5 +1,6 @@
 from mat_mult import mat_mult
 from csv_manager import csv_manager
+import sys, time
 
 import sys
 # python main file1 file2 pool_size fileoutput
@@ -14,7 +15,6 @@ def show_help():
 
 
 if __name__ == "__main__":
-
     arguments = sys.argv
     if (len(arguments) == 5):
         file_a = arguments[1]
@@ -24,12 +24,14 @@ if __name__ == "__main__":
 
         file_a_df = csv_manager.read(file_a)
         file_b_df = csv_manager.read(file_b)
-        mult = mat_mult(file_a_df, file_b_df)
-        mult.mult()
-        csv_manager.write(output_filename)
+        mult = mat_mult(file_a_df, file_b_df, pool_size)
+        if(mult.validate_dimentions()):
+            start = time.perf_counter()
+            mult.run()
+            end = time.perf_counter()
 
-        
-        
+        print(f"Time taken to complete mat_mult(): {round(end - start, 5)} seconds(s)")
+        csv_manager.write_final_response(mult.get_final_response(), output_filename)
 
     else:
         show_help()
