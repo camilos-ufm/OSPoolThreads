@@ -22,11 +22,14 @@ class mat_mult:
         return k1==k2
 
     def matmult(self, param1, param2):
-        n = self.matrix_a.shape[0]
+        n = self.matrix_a.shape[1]
         for i in range(int(param1), int(param2)):
             for j in range(n):
                 for k in range(n):
-                    self.matrix_c[i][j] += int(self.matrix_a[i][k] * self.matrix_b[k][j])
+                    try:
+                        self.matrix_c[i][j] += int(self.matrix_a[i][k] * self.matrix_b[k][j])
+                    except:
+                        pass
 
     def run(self):
         thread_pool_list = list()
