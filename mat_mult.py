@@ -33,7 +33,7 @@ class mat_mult:
 
     def run(self):
         thread_pool_list = list()
-        n = self.matrix_a.shape[0]
+        n = self.matrix_a.shape[1]
 
         for i in range(0, self.pool_size):
             init = (n/self.pool_size)
@@ -42,8 +42,8 @@ class mat_mult:
             thread_pool_list.append(single_thread)
             single_thread.start()   
 
-        for j in range(0, self.pool_size):
-            thread_pool_list[j].join()
+        for index, thread in enumerate(thread_pool_list):
+            thread.join()
     
     def get_final_response(self):
         return self.matrix_c

@@ -29,7 +29,9 @@ if __name__ == "__main__":
             start = time.perf_counter()
             mult.run()
             end = time.perf_counter()
-
+        else:
+            print("Not able to operate, mismatched dimentions")
+            
         print(f"Time taken to complete mat_mult(): {round(end - start, 5)} seconds(s)")
         csv_manager.write_final_response(mult.get_final_response(), output_filename)
 
