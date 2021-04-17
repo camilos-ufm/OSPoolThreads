@@ -27,16 +27,18 @@ matrix multiplication using a thread pool to multiprocess the arithmetic operati
 
 ## Solution
 
-- Read the CSV files and convert them into matrix 
-- A csv_manager was implemented (read and write files with static methods)
+- Read the CSV files and convert them into matrix.
+- A csv_manager was implemented (read and write files with static methods).
 - We created a class to implement the solution, it is called mat_mult.py
-- This class has several methods that help with the implementation: verify the dimention of the matrix, run the actual code and managing the atributes 
-- We used a time package from the python library to keep track of the total amount used for the algorithm 
-- The class mat mult has a main method: run() and it implements a list o threads (pool) and we create each pool, partition the operations and assigned the fractions of the matrix to each thread available.
+- This class has several methods that help with the implementation: verify the dimention of the matrix, run the actual code and managing the atributes.
+- We used a time package from the python library to keep track of the total amount used for the algorithm.
+- The class mat mult has a main method: run() and it implements a list o threads (pool), in which we store each pool.
+- We created different partitions of the matrix according to the pool size.
+- A part of the matrix is assigned to each thread for it to operate it.
 - At the end, we iterate in the list of threads and join them all to the main thread.
-- All operations are storaged in an atribute in the class instance, so we print it into a csv
+- All operations are storaged in an atribute in the class instance, so we print it into a csv.
 
-
+Final time result for a 500x500 operation: 362.452 seconds
 
 **💡 Warning:** It can take some time and % of the CPU.
 
