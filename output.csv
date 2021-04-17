@@ -1,2 +1,5 @@
 27.0,33.0
 39.0,48.0
+
+Time taken to complete mat_mult(): 0.00621 seconds(s)
+Pool size used to complete mat_mult(): 4

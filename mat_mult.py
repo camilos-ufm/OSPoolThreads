@@ -3,8 +3,7 @@ import sys, time
 from threading import Thread
 import numpy as np
 import pandas as pd
-
-
+ 
 class mat_mult:
     def __init__(self, matrix_a, matrix_b, pool_size):
         """ Create a new point at the origin """

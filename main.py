@@ -34,6 +34,10 @@ if __name__ == "__main__":
             
         print(f"Time taken to complete mat_mult(): {round(end - start, 5)} seconds(s)")
         csv_manager.write_final_response(mult.get_final_response(), output_filename)
+        
+        csv_manager.write(output_filename, f"\n")
+        csv_manager.write(output_filename, f"Time taken to complete mat_mult(): {round(end - start, 5)} seconds(s)\n")
+        csv_manager.write(output_filename, f"Pool size used to complete mat_mult(): {pool_size}\n")
 
     else:
         show_help()
