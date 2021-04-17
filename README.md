@@ -38,7 +38,9 @@ matrix multiplication using a thread pool to multiprocess the arithmetic operati
 - At the end, we iterate through the list of threads and join them all to the main thread.
 - All operations are storaged in an atribute in the class instance, so we print it into a csv.
 
-Final time result for a 500x500 operation: 362.452 seconds
+Final time result for a 500x500 operation: 284.63789 seconds
+
+<img alt="cpu" src="https://github.com/camilos-ufm/OSPoolThreads/blob/main/final.png">
 
 **💡 Warning:** It can take some time and % of the CPU.
 
