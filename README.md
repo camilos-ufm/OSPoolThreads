@@ -62,6 +62,13 @@ Now that the requirements are satisfied, you can install and run the Mat Mult. F
 ### [Production]
 
 ```
+python main.py {file A} {file B} {pool size} {output file}
+
+```
+
+#### Example:
+
+```
 python main.py m1A.csv m1B.csv 4 output.csv
 
 ```
