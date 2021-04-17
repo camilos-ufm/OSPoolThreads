@@ -6,7 +6,7 @@
 
 <div align="center">
   <h4>
-    <a href="#Solución del problema">Solución del Problema</a> |
+    <a href="#Solution">Solution</a> |
     <a href="#Requirements">Requirements</a> |
     <a href="#Installing and running the app">Installing</a> |
     <a href="#Contributing">Contributing</a> |
@@ -25,7 +25,7 @@ Proyecto de multiplicación de matrices haciendo uso de thread-pool.
 
 <sub>Vist <a href="#">Troubleshooting</a> to find more.</sub>
 
-## Solución del problema
+## Solution
 
 - Leer CSV
 - Pasarlo a uno estructura de datos (Matrix multidimensional)
