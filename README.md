@@ -36,50 +36,33 @@ Proyecto de multiplicación de matrices haciendo uso de thread-pool.
 
 
 
-**💡 Warning:** You cannot run production mode with clock set up as 0. That parameter is meant for debug mode only.
+**💡 Warning:** It can take some time and % of the CPU.
 
 ## Requirements
 
 To work correctly, you will first need:
 
-- [`Docker`](https://docs.docker.com/install/) must be installed.
+- [`Python`](https://www.python.org/downloads/release/python-394/) must be installed.
+
+Then run this command in order to install all the aditional dependencies from pip
+
+```
+pip install -r requirements.txt
+
+```
 
 ## Installing and running the app
 
-Now that the requirements are satisfied, you can install and run the CPU Simulator. First download or clone the repository and:
+Now that the requirements are satisfied, you can install and run the Mat Mult. First download or clone the repository and:
 
 ### [Production]
 
 ```
-docker-compose up --build
+python main.py m1A.csv m1B.csv 4 output.csv
 
 ```
 
-Done. This command should run both containers (web and api). In order to see the app hit your computer host direction in the port [`5001`](http://localhost:5001/).
-
-**💡 Warning:** Do not run this method if clock is set as 0 in bios.yml file.
-
-### [Debug mode]
-
-Make the required changes in bios.yml, you can either change the clock attribute to 0, program will wait for an Enter to continue. If not, you will be able to see the logs from the CPU simulator.
-
-#### Procedure:
-
-- Build the api image from api.Dockerfile
-- Run the image you just build with the following flags: 
-
-```
-docker run -it -p 5000:5000 andresry/cpusimulator:0.0
-
-```
-
-- If you want to use the web app to interact with the debug mode of the cpu, please build the image for the NGINX container and run it as:
-
-```
-docker run --name web -d -p 5001:80 andresry/webcpu:0.0
-
-```
-- Open your browser and go to your port [`5001`](http://localhost:5001/).
+Done. This command should run the code.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
