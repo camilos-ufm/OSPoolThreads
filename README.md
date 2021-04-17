@@ -1,6 +1,6 @@
 <h1 align="center">
   <!-- a href="https://github.com/denysdovhan/spaceship-prompt" -->
-    <img alt="cpu" src="https://github.com/camilos-ufm/OSPoolThreads/blob/main/thread-pool.png" width="400">
+    <img alt="cpu" src="https://github.com/camilos-ufm/OSPoolThreads/blob/main/image.png" width="400">
   <br>🚀 OSPoolThreads <br>
 </h1>
 
