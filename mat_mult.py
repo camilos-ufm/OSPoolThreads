@@ -7,9 +7,14 @@ import pandas as pd
 class mat_mult:
     def __init__(self, matrix_a, matrix_b, pool_size):
         """ Create a new point at the origin """
+        try:
+            self.pool_size = int(pool_size)
+        except ValueError:
+            print(ValueError)
+            print(f"Wrong pool_size, using default: 10")
+            self.pool_size = 10;
         self.matrix_a = matrix_a
         self.matrix_b = matrix_b
-        self.pool_size = int(pool_size)
         self.matrix_c = []
 
     def validate_dimentions(self):
