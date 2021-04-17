@@ -21,7 +21,7 @@
 </div>
 <br>
 
-Proyecto de multiplicación de matrices haciendo uso de thread-pool.
+matrix multiplication using a thread pool to multiprocess the arithmetic operations
 
 <sub>Vist <a href="#">Troubleshooting</a> to find more.</sub>
 
