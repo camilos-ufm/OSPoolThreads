@@ -25,6 +25,8 @@ if __name__ == "__main__":
         file_a_df = csv_manager.read(file_a)
         file_b_df = csv_manager.read(file_b)
         mult = mat_mult(file_a_df, file_b_df, pool_size)
+        start = 0
+        end = 0
         if(mult.validate_dimentions()):
             start = time.perf_counter()
             mult.run()
